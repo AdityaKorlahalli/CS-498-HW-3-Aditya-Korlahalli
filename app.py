@@ -23,7 +23,7 @@ def insert_fast():
 @app.route(“/insert-safe”, methods=[“POST”])
 def insert_safe():
     data = request.json
-    coll_safe = collection.with_options(write_concern=WriteConcern(w=“majority”))
+    coll_safe = collection.with_options(write_concern=WriteConcern(w="majority"))
     result = coll_safe.insert_one(data)
     return jsonify({"inserted_id": str(result.inserted_id)}), 201
 
